@@ -55,9 +55,9 @@ describe('F1S1 Login flow', () => {
 
     it('should return HTTP 200 for valid access token', () => {
       return request(app.getHttpServer())
-      .get('/profile')
-      .set('Authorization', `Bearer ${access_token}`)
-      .expect(200);
+        .get('/profile')
+        .set('Authorization', `Bearer ${access_token}`)
+        .expect(200);
     });
   });
 });
