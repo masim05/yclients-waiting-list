@@ -9,6 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "migrations:generate": "typeorm migration:generate -d dist/typeorm.js",
+    "migrations:create": "typeorm migration:create",
     "migrations:run": "typeorm migration:run -d dist/typeorm.js",
     "migrations:revert": "typeorm migration:revert -d dist/typeorm.js",
     "start": "nest start",
