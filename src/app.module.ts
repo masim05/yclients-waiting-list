@@ -23,7 +23,7 @@ import { AuthModule } from './auth/auth.module';
       password: '123456',
       database: 'yc_wl_dev',
       entities: [User, Company],
-//      synchronize: true,
+      //      synchronize: true,
     }),
   ],
   controllers: [AppController],
