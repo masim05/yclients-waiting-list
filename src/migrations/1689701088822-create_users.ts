@@ -9,7 +9,8 @@ export class CreateUsers1689701088822 implements MigrationInterface {
             "updatedAt" timestamp with time zone DEFAULT now() NOT NULL,
             username character varying NOT NULL,
             email character varying NOT NULL
-        );`,
+        );
+        ALTER TABLE "users" ADD CONSTRAINT "PK_951b8f1dfc94ac1d0301a14b7e1" PRIMARY KEY ("uuid")`,
     );
   }
 
