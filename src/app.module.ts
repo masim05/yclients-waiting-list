@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     AuthModule,
     TypeOrmModule.forRoot({
+      // TODO: to move to config service
       type: 'postgres',
       host: 'localhost',
       port: 5432,

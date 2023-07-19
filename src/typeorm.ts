@@ -1,6 +1,7 @@
 import { DataSource } from 'typeorm';
 
 const AppDataSource = new DataSource({
+  // TODO: to move to config service
   type: 'postgres',
   host: 'localhost',
   port: 5432,
