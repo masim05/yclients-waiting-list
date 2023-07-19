@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { Company } from './entity/company';
 import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
 
@@ -21,8 +22,8 @@ import { AuthModule } from './auth/auth.module';
       username: 'postgres',
       password: '123456',
       database: 'yc_wl_dev',
-      entities: [User],
-      synchronize: true,
+      entities: [User, Company],
+//      synchronize: true,
     }),
   ],
   controllers: [AppController],
