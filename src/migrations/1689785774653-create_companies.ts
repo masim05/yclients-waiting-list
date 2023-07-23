@@ -5,8 +5,8 @@ export class CreateCompanies1689785774653 implements MigrationInterface {
     await queryRunner.query(
       `CREATE TABLE public.companies (
                 uuid uuid DEFAULT public.uuid_generate_v4() NOT NULL,
-                "createdAt" timestamp with time zone DEFAULT now() NOT NULL,
-                "updatedAt" timestamp with time zone DEFAULT now() NOT NULL,
+                created_at timestamp with time zone DEFAULT now() NOT NULL,
+                updated_at timestamp with time zone DEFAULT now() NOT NULL,
                 name character varying NOT NULL,
                 yc_id integer NOT NULL
             );
