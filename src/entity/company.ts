@@ -8,6 +8,6 @@ export class Company extends BaseEntity {
   @Column()
   name: string;
 
-  @Column('yc_id')
+  @Column('integer', { name: 'yc_id' })
   ycId: number;
 }
