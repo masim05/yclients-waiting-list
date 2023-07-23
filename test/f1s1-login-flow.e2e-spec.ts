@@ -9,7 +9,7 @@ import { UsersService } from '../src/users/users.service';
 import { User, CreateUserDto } from '../src/users/user.entity';
 import { TypeORMPGTestingModule } from './TypeORMPGTestingModule';
 
-describe.skip('F1S1 Login flow', () => {
+describe('F1S1 Login flow', () => {
   let app: INestApplication;
   let module: TestingModule;
   let service: UsersService;
