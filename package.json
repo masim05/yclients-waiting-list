@@ -12,7 +12,7 @@
     "migrations:create": "typeorm migration:create",
     "migrations:run": "typeorm migration:run -d dist/typeorm.js",
     "migrations:revert": "typeorm migration:revert -d dist/typeorm.js",
-    "migrations:test:run": "typeorm migration:run -d dist/test-utils/typeorm.js",
+    "migrations:test:run": "typeorm migration:run -d dist/test/typeorm.js",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:db:dev": "./src/scripts/start-db.sh",

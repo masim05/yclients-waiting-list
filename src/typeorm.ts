@@ -8,7 +8,7 @@ const AppDataSource = new DataSource({
   username: 'postgres',
   password: '123456',
   database: 'yc_wl_dev',
-  migrations: ['dist/migrations/*.js'],
+  migrations: ['dist/src/migrations/*.js'],
   migrationsTableName: 'migrations',
   entities: ['dist/**/*.entity.js'],
 });
