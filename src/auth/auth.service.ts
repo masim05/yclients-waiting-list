@@ -11,8 +11,8 @@ export class AuthService {
   ) {}
 
   // TODO to return User type
-  async validateUser(email: string, _: string): Promise<any> {
-    const user = await this.usersService.findOne(email);
+  async validateUser(email: string, password: string): Promise<any> {
+    const user = await this.usersService.findOne(email, password);
     if (user) {
       return user;
     }

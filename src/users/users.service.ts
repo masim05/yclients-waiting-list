@@ -2,37 +2,52 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { User } from './user.entity';
+import { User, CreateUserDto } from './user.entity';
 
 @Injectable()
 export class UsersService {
-  private readonly users: User[] = [
-    {
-      uuid: '45d56f88-60ef-48de-bf20-2b282faa0bd7',
-      email: 'john@test.com',
-      username: 'John',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      uuid: '14e8eecc-bb2a-40ab-bc4b-1fdf3caa880c',
-      email: 'ned@test.com',
-      username: 'Ned',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
-
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
   ) {}
 
-  async findOne(email: string): Promise<User | undefined> {
-    return this.users.find((user) => user.email === email);
+  async findOne(email: string, password: string): Promise<User | null> {
+    const user = await this.usersRepository
+      .createQueryBuilder()
+      .where(`email = :email AND password = crypt(:password, password)`, {
+        email,
+        password,
+      })
+      .getOne();
+    return user;
+  }
+
+  async login(email: string, password: string): Promise<User | null> {
+    const user = await this.usersRepository
+      .createQueryBuilder()
+      .where(`email = :email AND password = crypt(:password, password)`, {
+        email,
+        password,
+      })
+      .getOne();
+    return user;
   }
 
   findAll(): Promise<User[]> {
     return this.usersRepository.find();
+  }
+
+  async create(createUserDto: CreateUserDto): Promise<User | null> {
+    const { username, email, password } = createUserDto;
+
+    await this.usersRepository.query(
+      `INSERT INTO "users" (username, email, password) VALUES ($1, $2, crypt($3, gen_salt('bf')));`,
+      [username, email, password],
+    );
+    const user = await this.usersRepository
+      .createQueryBuilder()
+      .where({ email })
+      .getOne();
+    return user;
   }
 }

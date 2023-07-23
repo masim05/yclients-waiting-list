@@ -9,4 +9,14 @@ export class User extends BaseEntity {
 
   @Column()
   email: string;
+
+  // TODO: do not retrive password by default
+  @Column()
+  password: string;
+}
+
+export class CreateUserDto {
+  username: string;
+  email: string;
+  password: string;
 }
