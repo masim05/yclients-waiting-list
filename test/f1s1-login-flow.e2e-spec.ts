@@ -62,7 +62,7 @@ describe('F1S1 Login flow', () => {
     it('should return access token for valid creds', async () => {
       const res = await request(app.getHttpServer())
         .post('/auth/login')
-        .send({ username: email, password })
+        .send({ email, password })
         .set('Content-Type', 'application/json')
         .expect(201);
 
