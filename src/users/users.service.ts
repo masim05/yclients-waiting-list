@@ -22,7 +22,7 @@ export class UsersService {
     return user;
   }
 
-  async login(email: string, password: string): Promise<User | null> {
+  async validate(email: string, password: string): Promise<User | null> {
     const user = await this.usersRepository
       .createQueryBuilder()
       .where(`email = :email AND password = crypt(:password, password)`, {

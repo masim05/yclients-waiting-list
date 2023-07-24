@@ -70,7 +70,7 @@ describe('UsersService', () => {
     });
 
     it('should be able to login a user', async () => {
-      const user = await service.login(email, password);
+      const user = await service.validate(email, password);
 
       expect(user).toBeDefined();
       expect(user?.email).toEqual(email);
