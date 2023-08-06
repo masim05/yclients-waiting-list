@@ -1,4 +1,4 @@
-import { Controller, Request, Get, Post, UseGuards } from '@nestjs/common';
+import { Controller, Request, Get, Post, UseGuards, Render } from '@nestjs/common';
 
 import { AppService } from './app.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
@@ -13,8 +13,9 @@ export class AppController {
   ) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Render('index')
+  getHello(): object {
+    return { message: this.appService.getHello() };
   }
 
   // TODO use RequestWithUser extending Request
