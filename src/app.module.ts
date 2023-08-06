@@ -5,9 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-import { Company } from './entity/company';
+import { Company } from './yclients/company.entity';
 import { User } from './users/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { YclientsModule } from './yclients/yclients.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
       entities: [User, Company],
       //      synchronize: true,
     }),
+    YclientsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
